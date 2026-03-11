@@ -25,13 +25,15 @@
   .header-date { font-size: 11px; color: var(--muted); }
 
   .tabs {
-    display: flex; background: var(--surface); border-bottom: 1px solid var(--border);
-    position: sticky; top: 53px; z-index: 99;
+    display: flex; background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 99;
   }
   .tab {
-    flex: 1; padding: 12px 0; text-align: center; font-size: 13px; font-weight: 600;
+    flex: 1; padding: 15px 0; text-align: center; font-size: 15px; font-weight: 600;
     color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent;
     transition: color 0.15s, border-color 0.15s; user-select: none;
+    letter-spacing: 0.01em;
   }
   .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
@@ -212,14 +214,14 @@
   <div class="header">
     <span class="header-logo">Belvu Group</span>
     <div class="header-right">
-      <div class="header-title">🌿 Nick's Thai</div>
+      <div class="header-title">🍜 Nick's Thai</div>
       <div class="header-date" id="headerDate"></div>
     </div>
   </div>
 
   <div class="tabs">
-    <div class="tab active" id="tabPrep" onclick="switchTab('prep')">🧑‍🍳 Prep Tasks</div>
-    <div class="tab" id="tabOrder" onclick="switchTab('order')">🛒 Order / Buy</div>
+    <div class="tab active" id="tabPrep" onclick="switchTab('prep')">Prep Tasks</div>
+    <div class="tab" id="tabOrder" onclick="switchTab('order')">Order / Buy</div>
   </div>
 
   <div class="screen">
@@ -288,32 +290,31 @@
 
 <script>
   var PREP_ITEMS = [
-    { id:1,  name:"Zucchini",           hasOrder:true  },
+    { id:8,  name:"Carrot",             hasOrder:true  },
+    { id:14, name:"Cashews",            hasOrder:true  },
+    { id:4,  name:"Cauliflower",        hasOrder:true  },
     { id:2,  name:"Capsicum",           hasOrder:true  },
     { id:3,  name:"Broccoli",           hasOrder:true  },
-    { id:4,  name:"Cauliflower",        hasOrder:true  },
     { id:5,  name:"Eggs",               hasOrder:true  },
     { id:6,  name:"Pad See Ew noodles", hasOrder:false },
     { id:7,  name:"Pad Thai noodles",   hasOrder:false },
-    { id:8,  name:"Carrot",             hasOrder:true  },
-    { id:9,  name:"Skewers",            hasOrder:false },
-    { id:10, name:"Squid",              hasOrder:true  },
-    { id:11, name:"Roti",               hasOrder:true  },
-    { id:12, name:"Stock",              hasOrder:false },
     { id:13, name:"Red onion",          hasOrder:true  },
-    { id:14, name:"Cashews",            hasOrder:true  },
-  ];
+    { id:11, name:"Roti",               hasOrder:true  },
+    { id:9,  name:"Skewers",            hasOrder:false },
+    { id:12, name:"Stock",              hasOrder:false },
+    { id:10, name:"Squid",              hasOrder:true  },
+    { id:1,  name:"Zucchini",           hasOrder:true  },
+  ].sort((a,b) => a.name.localeCompare(b.name));
 
   var ORDER_ONLY = [
-    { id:20, name:"Tofu" },
     { id:21, name:"Soft drink" },
-    { id:22, name:"Cauliflower" },
+    { id:22, name:"Tofu" },
   ];
 
   var ORDER_ITEMS = [
     ...PREP_ITEMS.filter(i => i.hasOrder).map(i => ({ id:100+i.id, name:i.name })),
     ...ORDER_ONLY,
-  ];
+  ].sort((a,b) => a.name.localeCompare(b.name));
 
   var nextId = 200;
   var prepState  = {};
@@ -521,34 +522,37 @@
         backgroundColor: '#111', scale: 2, useCORS: true, scrollY: -window.scrollY,
         windowWidth: target.scrollWidth, windowHeight: target.scrollHeight,
       });
-      var dataUrl = canvas.toDataURL('image/png');
-      // iOS Safari: open image in new tab so user can long-press Save to Photos
-      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      if (isIOS) {
-        var newTab = window.open();
-        if (newTab) {
-          newTab.document.write('<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{margin:0;background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh}img{max-width:100%;height:auto}</style></head><body><img src="' + dataUrl + '"><p style="color:#888;font-family:sans-serif;text-align:center;padding:16px;font-size:13px">Press and hold the image → Save to Photos</p></body></html>');
-          newTab.document.close();
+      canvas.toBlob(async function(blob) {
+        var file = new File([blob], 'nicks-thai-prep-' + Date.now() + '.png', { type: 'image/png' });
+        // Use native share sheet on iOS (triggers Save to Photos option)
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file], title: "Nick's Thai Prep List" });
+          } catch(e) {
+            if (e.name !== 'AbortError') fallbackDownload(canvas);
+          }
         } else {
-          // fallback if popup blocked
-          var link = document.createElement('a');
-          link.href = dataUrl;
-          link.download = 'nicks-thai-prep-' + Date.now() + '.png';
-          link.click();
+          fallbackDownload(canvas);
         }
-      } else {
-        var link = document.createElement('a');
-        link.download = 'nicks-thai-prep-' + Date.now() + '.png';
-        link.href = dataUrl;
-        link.click();
-      }
+        backBtn.style.display = '';
+        actions.style.display = '';
+        btn.textContent = orig;
+        btn.disabled = false;
+      }, 'image/png');
     } catch(e) {
       alert('Could not save image. Try taking a screenshot instead.');
+      backBtn.style.display = '';
+      actions.style.display = '';
+      btn.textContent = orig;
+      btn.disabled = false;
     }
-    backBtn.style.display = '';
-    actions.style.display = '';
-    btn.textContent = orig;
-    btn.disabled = false;
+  }
+
+  function fallbackDownload(canvas) {
+    var link = document.createElement('a');
+    link.download = 'nicks-thai-prep-' + Date.now() + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
   }
 
   renderAll();
