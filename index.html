@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,204 +14,203 @@
   }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-.header {
-background: var(–surface); border-bottom: 1px solid var(–border);
-padding: 14px 20px; display: flex; align-items: center; justify-content: space-between;
-position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-height: 60px;
-}
-.header-logo { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: var(–muted); text-transform: uppercase; }
-.header-right { text-align: right; }
-.header-title { font-size: 15px; font-weight: 600; }
-.header-date { font-size: 11px; color: var(–muted); }
+  .header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 14px 20px; display: flex; align-items: center; justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 60px;
+  }
+  .header-logo { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; }
+  .header-right { text-align: right; }
+  .header-title { font-size: 15px; font-weight: 600; }
+  .header-date { font-size: 11px; color: var(--muted); }
 
-.tabs {
-display: flex; background: var(–surface);
-border-bottom: 1px solid var(–border);
-position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
-height: 52px;
-}
-.tab {
-flex: 1; height: 52px; padding: 0;
-display: flex; align-items: center; justify-content: center;
-font-size: 15px; font-weight: 600;
-color: var(–muted); cursor: pointer; border-bottom: 2px solid transparent;
-transition: color 0.15s, border-color 0.15s; user-select: none;
-letter-spacing: 0.01em; line-height: 1;
-}
-.tab.active { color: var(–accent); border-bottom-color: var(–accent); }
+  .tabs {
+    display: flex; background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
+    height: 52px;
+  }
+  .tab {
+    flex: 1; height: 52px; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 600;
+    color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s; user-select: none;
+    letter-spacing: 0.01em; line-height: 1;
+  }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-.screen { max-width: 480px; margin: 0 auto; padding: 16px 16px 100px; margin-top: 112px; }
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
+  .screen { max-width: 480px; margin: 0 auto; padding: 16px 16px 100px; margin-top: 112px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
-.search-wrap { position: relative; margin-bottom: 12px; }
-.search-wrap input {
-width: 100%; background: var(–surface); border: 1px solid var(–border);
-border-radius: 8px; padding: 10px 12px 10px 36px;
-color: var(–text); font-size: 16px; font-family: ‘Inter’, sans-serif; outline: none;
-}
-.search-wrap input:focus { border-color: #444; }
-.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(–muted); font-size: 13px; }
+  .search-wrap { position: relative; margin-bottom: 12px; }
+  .search-wrap input {
+    width: 100%; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 12px 10px 36px;
+    color: var(--text); font-size: 16px; font-family: 'Inter', sans-serif; outline: none;
+  }
+  .search-wrap input:focus { border-color: #444; }
+  .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 13px; }
 
-.meta-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.meta-row span { font-size: 12px; color: var(–muted); }
+  .meta-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .meta-row span { font-size: 12px; color: var(--muted); }
 
-.item-list { display: flex; flex-direction: column; gap: 7px; }
+  .item-list { display: flex; flex-direction: column; gap: 7px; }
 
-.prep-item {
-background: var(–surface); border: 1px solid var(–border); border-radius: 10px;
-overflow: hidden; transition: background 0.1s;
-}
-.item-row {
-padding: 10px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer;
-}
-.item-row:hover { background: var(–surface2); }
-.item-name { font-size: 14px; font-weight: 500; flex: 1; }
-.item-note-preview { font-size: 11px; color: var(–muted); margin-top: 1px; }
+  .prep-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    overflow: hidden; transition: background 0.1s;
+  }
+  .item-row {
+    padding: 10px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer;
+  }
+  .item-row:hover { background: var(--surface2); }
+  .item-name { font-size: 14px; font-weight: 500; flex: 1; }
+  .item-note-preview { font-size: 11px; color: var(--muted); margin-top: 1px; }
 
-.qty-wrap { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-.qty-btn {
-width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(–border);
-background: var(–surface2); color: var(–text); font-size: 16px;
-display: flex; align-items: center; justify-content: center;
-cursor: pointer; transition: background 0.1s; flex-shrink: 0;
-}
-.qty-btn:active { background: #3a3a3a; }
-.qty-val { font-size: 13px; font-weight: 600; min-width: 22px; text-align: center; }
+  .qty-wrap { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .qty-btn {
+    width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--surface2); color: var(--text); font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.1s; flex-shrink: 0;
+  }
+  .qty-btn:active { background: #3a3a3a; }
+  .qty-val { font-size: 13px; font-weight: 600; min-width: 22px; text-align: center; }
 
-/* notes drawer */
-.notes-drawer {
-display: none; padding: 0 14px 12px; border-top: 1px solid var(–border);
-}
-.notes-drawer.open { display: block; }
-.notes-drawer textarea {
-width: 100%; background: var(–surface2); border: 1px solid var(–border);
-border-radius: 6px; padding: 8px 10px; color: var(–text);
-font-size: 16px; font-family: ‘Inter’, sans-serif; resize: none;
-outline: none; min-height: 60px; margin-top: 10px;
-}
-.notes-drawer textarea:focus { border-color: #444; }
-.notes-label { font-size: 11px; color: var(–muted); margin-top: 10px; display: block; }
+  /* notes drawer */
+  .notes-drawer {
+    display: none; padding: 0 14px 12px; border-top: 1px solid var(--border);
+  }
+  .notes-drawer.open { display: block; }
+  .notes-drawer textarea {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 8px 10px; color: var(--text);
+    font-size: 16px; font-family: 'Inter', sans-serif; resize: none;
+    outline: none; min-height: 60px; margin-top: 10px;
+  }
+  .notes-drawer textarea:focus { border-color: #444; }
+  .notes-label { font-size: 11px; color: var(--muted); margin-top: 10px; display: block; }
 
-/* add item */
-.add-item-btn {
-width: 100%; margin-top: 12px; padding: 11px;
-background: none; border: 1px dashed var(–border);
-border-radius: 10px; color: var(–muted); font-size: 13px; font-weight: 600;
-cursor: pointer; font-family: ‘Inter’, sans-serif; transition: border-color 0.15s, color 0.15s;
-}
-.add-item-btn:hover { border-color: var(–accent); color: var(–accent); }
+  /* add item */
+  .add-item-btn {
+    width: 100%; margin-top: 12px; padding: 11px;
+    background: none; border: 1px dashed var(--border);
+    border-radius: 10px; color: var(--muted); font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif; transition: border-color 0.15s, color 0.15s;
+  }
+  .add-item-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-/* add item modal */
-.modal-overlay {
-display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-z-index: 200; align-items: center; justify-content: center;
-}
-.modal-overlay.open { display: flex; }
-.modal {
-background: var(–surface); border: 1px solid var(–border); border-radius: 14px;
-padding: 24px 20px; width: calc(100% - 40px); max-width: 400px;
-}
-.modal h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
-.modal input {
-width: 100%; background: var(–surface2); border: 1px solid var(–border);
-border-radius: 8px; padding: 10px 12px; color: var(–text);
-font-size: 16px; font-family: ‘Inter’, sans-serif; outline: none; margin-bottom: 12px;
-}
-.modal input:focus { border-color: #444; }
-.modal-actions { display: flex; gap: 10px; margin-top: 4px; }
-.modal-btn {
-flex: 1; padding: 11px; border-radius: 8px; border: 1px solid var(–border);
-background: var(–surface2); color: var(–text); font-size: 13px; font-weight: 600;
-cursor: pointer; font-family: ‘Inter’, sans-serif;
-}
-.modal-btn.confirm { background: var(–accent); border-color: var(–accent); color: #000; }
+  /* add item modal */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    z-index: 200; align-items: center; justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 24px 20px; width: calc(100% - 40px); max-width: 400px;
+  }
+  .modal h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+  .modal input {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 12px; color: var(--text);
+    font-size: 16px; font-family: 'Inter', sans-serif; outline: none; margin-bottom: 12px;
+  }
+  .modal input:focus { border-color: #444; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 4px; }
+  .modal-btn {
+    flex: 1; padding: 11px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface2); color: var(--text); font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+  }
+  .modal-btn.confirm { background: var(--accent); border-color: var(--accent); color: #000; }
 
-.bottom-bar {
-position: fixed; bottom: 0; left: 0; right: 0;
-background: var(–surface); border-top: 1px solid var(–border);
-padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; z-index: 100;
-}
-.bottom-count { font-size: 13px; color: var(–muted); }
-.bottom-count strong { color: var(–text); }
-.gen-btn {
-padding: 10px 22px; border-radius: 8px; border: none;
-background: var(–accent); color: #000; font-size: 14px; font-weight: 700;
-cursor: pointer; font-family: ‘Inter’, sans-serif;
-}
-.gen-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .bottom-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; z-index: 100;
+  }
+  .bottom-count { font-size: 13px; color: var(--muted); }
+  .bottom-count strong { color: var(--text); }
+  .gen-btn {
+    padding: 10px 22px; border-radius: 8px; border: none;
+    background: var(--accent); color: #000; font-size: 14px; font-weight: 700;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+  }
+  .gen-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-@import url(‘https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap’);
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-/* RESULT — Bold Contrast Dark */
-#resultScreen { display: none; }
-#resultScreen.active { display: block; }
+  /* RESULT — Bold Contrast Dark */
+  #resultScreen { display: none; }
+  #resultScreen.active { display: block; }
 
-.scrapbook {
-background: #111; min-height: 100vh;
-padding: 28px 20px 60px; font-family: ‘Inter’, sans-serif;
-}
-.back-btn {
-background: none; border: none; color: #555; font-size: 13px;
-cursor: pointer; display: flex; align-items: center; gap: 6px;
-padding: 0; margin-bottom: 24px; font-family: ‘Inter’, sans-serif;
-}
-.back-btn:hover { color: #aaa; }
+  .scrapbook {
+    background: #111; min-height: 100vh;
+    padding: 28px 20px 60px; font-family: 'Inter', sans-serif;
+  }
+  .back-btn {
+    background: none; border: none; color: #555; font-size: 13px;
+    cursor: pointer; display: flex; align-items: center; gap: 6px;
+    padding: 0; margin-bottom: 24px; font-family: 'Inter', sans-serif;
+  }
+  .back-btn:hover { color: #aaa; }
 
-.scrapbook-venue {
-font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-text-transform: uppercase; color: #22c55e; margin-bottom: 6px;
-}
-.scrapbook-date { font-size: 11px; color: #444; margin-bottom: 14px; }
-.scrapbook-title {
-font-family: ‘Bebas Neue’, sans-serif;
-font-size: 44px; color: #fff; letter-spacing: 0.04em;
-line-height: 1; margin-bottom: 22px;
-}
+  .scrapbook-venue {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #22c55e; margin-bottom: 6px;
+  }
+  .scrapbook-date { font-size: 11px; color: #444; margin-bottom: 14px; }
+  .scrapbook-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px; color: #fff; letter-spacing: 0.04em;
+    line-height: 1; margin-bottom: 22px;
+  }
 
-.scrapbook-card {
-background: #1a1a1a; border-radius: 10px; padding: 18px 20px;
-margin-bottom: 12px; position: relative; overflow: hidden;
-}
-.scrapbook-card::before {
-content: ‘’; position: absolute; left: 0; top: 0; bottom: 0;
-width: 3px; background: #22c55e;
-}
-.scrapbook-card.shop::before { background: #f59e0b; }
+  .scrapbook-card {
+    background: #1a1a1a; border-radius: 10px; padding: 18px 20px;
+    margin-bottom: 12px; position: relative; overflow: hidden;
+  }
+  .scrapbook-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: #22c55e;
+  }
+  .scrapbook-card.shop::before { background: #f59e0b; }
 
-.scrapbook-card-title {
-font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
-text-transform: uppercase; color: #22c55e; margin-bottom: 14px;
-}
-.scrapbook-card.shop .scrapbook-card-title { color: #f59e0b; }
+  .scrapbook-card-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #22c55e; margin-bottom: 14px;
+  }
+  .scrapbook-card.shop .scrapbook-card-title { color: #f59e0b; }
 
-.scrapbook-list { list-style: none; padding: 0; margin: 0; }
-.scrapbook-list li {
-display: flex; align-items: center; gap: 10px;
-font-size: 15px; font-weight: 500; color: #e8e8e8;
-padding: 6px 0; line-height: 1.4; font-family: ‘Inter’, sans-serif;
-}
-.scrapbook-list li::before {
-content: ‘’; width: 5px; height: 5px; border-radius: 50%;
-background: #22c55e; flex-shrink: 0;
-}
-.scrapbook-card.shop .scrapbook-list li::before { background: #f59e0b; }
-.s-note { color: #888; font-size: 13px; font-weight: 400; }
-.s-qty { margin-left: auto; font-size: 13px; font-weight: 700; color: #666; white-space: nowrap; }
+  .scrapbook-list { list-style: none; padding: 0; margin: 0; }
+  .scrapbook-list li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 15px; font-weight: 500; color: #e8e8e8;
+    padding: 6px 0; line-height: 1.4; font-family: 'Inter', sans-serif;
+  }
+  .scrapbook-list li::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: #22c55e; flex-shrink: 0;
+  }
+  .scrapbook-card.shop .scrapbook-list li::before { background: #f59e0b; }
+  .s-note { color: #888; font-size: 13px; font-weight: 400; }
+  .s-qty { margin-left: auto; font-size: 13px; font-weight: 700; color: #666; white-space: nowrap; }
 
-.scrapbook-actions { display: flex; gap: 10px; margin-top: 20px; }
-.s-btn {
-flex: 1; padding: 13px; border-radius: 8px; border: 1px solid #2e2e2e;
-background: #1a1a1a; color: #f0f0f0; font-size: 13px; font-weight: 600;
-cursor: pointer; font-family: ‘Inter’, sans-serif; transition: background 0.1s;
-}
-.s-btn:hover { background: #222; }
-.s-btn.primary { background: #22c55e; border-color: #22c55e; color: #000; }
+  .scrapbook-actions { display: flex; gap: 10px; margin-top: 20px; }
+  .s-btn {
+    flex: 1; padding: 13px; border-radius: 8px; border: 1px solid #2e2e2e;
+    background: #1a1a1a; color: #f0f0f0; font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.1s;
+  }
+  .s-btn:hover { background: #222; }
+  .s-btn.primary { background: #22c55e; border-color: #22c55e; color: #000; }
 
-.empty { text-align: center; padding: 30px; color: var(–muted); font-size: 13px; }
+  .empty { text-align: center; padding: 30px; color: var(--muted); font-size: 13px; }
 </style>
-
 </head>
 <body>
 
@@ -241,18 +239,15 @@ cursor: pointer; font-family: ‘Inter’, sans-serif; transition: background 0.
       <button class="add-item-btn" onclick="openModal('prep')">+ Add Item</button>
     </div>
 
-```
-<div class="tab-panel" id="panelOrder">
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="searchOrder" placeholder="Search order items..." oninput="renderOrder()">
-  </div>
-  <div class="meta-row"><span id="countOrder">0 items set</span></div>
-  <div class="item-list" id="listOrder"></div>
-  <button class="add-item-btn" onclick="openModal('order')">+ Add Item</button>
-</div>
-```
-
+    <div class="tab-panel" id="panelOrder">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchOrder" placeholder="Search order items..." oninput="renderOrder()">
+      </div>
+      <div class="meta-row"><span id="countOrder">0 items set</span></div>
+      <div class="item-list" id="listOrder"></div>
+      <button class="add-item-btn" onclick="openModal('order')">+ Add Item</button>
+    </div>
   </div>
 
   <div class="bottom-bar">
@@ -262,7 +257,6 @@ cursor: pointer; font-family: ‘Inter’, sans-serif; transition: background 0.
 </div>
 
 <!-- ADD ITEM MODAL -->
-
 <div class="modal-overlay" id="addModal">
   <div class="modal">
     <h3 id="modalTitle">Add Prep Item</h3>
@@ -275,30 +269,26 @@ cursor: pointer; font-family: ‘Inter’, sans-serif; transition: background 0.
 </div>
 
 <!-- RESULT -->
-
 <div id="resultScreen">
   <div class="scrapbook" id="scrapbookContent">
     <button class="back-btn" onclick="goBack()">← Back</button>
 
-```
-<div class="scrapbook-card" id="rPrepSection">
-  <div class="scrapbook-venue">Nick's Thai</div>
-  <div class="scrapbook-date" id="resultSub"></div>
-  <div class="scrapbook-title">Kitchen Prep /<br>To-Do List</div>
-  <div class="scrapbook-card-title">Prep Tasks</div>
-  <ul class="scrapbook-list" id="rPrepItems"></ul>
-</div>
+    <div class="scrapbook-card" id="rPrepSection">
+      <div class="scrapbook-venue">Nick's Thai</div>
+      <div class="scrapbook-date" id="resultSub"></div>
+      <div class="scrapbook-title">Kitchen Prep /<br>To-Do List</div>
+      <div class="scrapbook-card-title">Prep Tasks</div>
+      <ul class="scrapbook-list" id="rPrepItems"></ul>
+    </div>
 
-<div class="scrapbook-card shop" id="rOrderSection">
-  <div class="scrapbook-card-title">Shopping List</div>
-  <ul class="scrapbook-list" id="rOrderItems"></ul>
-</div>
+    <div class="scrapbook-card shop" id="rOrderSection">
+      <div class="scrapbook-card-title">Shopping List</div>
+      <ul class="scrapbook-list" id="rOrderItems"></ul>
+    </div>
 
-<div class="scrapbook-actions">
-  <button class="s-btn primary" id="saveBtn" onclick="saveToPhotos()">📸 Save to Photos</button>
-</div>
-```
-
+    <div class="scrapbook-actions">
+      <button class="s-btn primary" id="saveBtn" onclick="saveToPhotos()">📸 Save to Photos</button>
+    </div>
   </div>
 </div>
 
@@ -369,215 +359,207 @@ cursor: pointer; font-family: ‘Inter’, sans-serif; transition: background 0.
         '<span class="notes-label">Notes</span>' +
         '<textarea placeholder="e.g. julienned, fresh only, call supplier..." ' +
           'oninput="saveNote(\'' + tab + '\',' + i.id + ',this.value)">' + (s.note || '') + '</textarea>' +
+      '</div>' +
+    '</div>';
+  }
 
-```
-  '</div>' +
-'</div>';
-```
+  function renderPrep() {
+    var q = document.getElementById('searchPrep').value.toLowerCase();
+    var items = PREP_ITEMS.filter(i => i.name.toLowerCase().includes(q));
+    var el = document.getElementById('listPrep');
+    el.innerHTML = items.length
+      ? items.map(i => itemHTML(i, prepState, 'p', 'changePrepQty', 'prep')).join('')
+      : '<div class="empty">No items found.</div>';
+    updateMeta();
+  }
 
-}
+  function renderOrder() {
+    var q = document.getElementById('searchOrder').value.toLowerCase();
+    var items = ORDER_ITEMS.filter(i => i.name.toLowerCase().includes(q));
+    var el = document.getElementById('listOrder');
+    el.innerHTML = items.length
+      ? items.map(i => itemHTML(i, orderState, 'o', 'changeOrderQty', 'order')).join('')
+      : '<div class="empty">No items found.</div>';
+    updateMeta();
+  }
 
-function renderPrep() {
-var q = document.getElementById(‘searchPrep’).value.toLowerCase();
-var items = PREP_ITEMS.filter(i => i.name.toLowerCase().includes(q));
-var el = document.getElementById(‘listPrep’);
-el.innerHTML = items.length
-? items.map(i => itemHTML(i, prepState, ‘p’, ‘changePrepQty’, ‘prep’)).join(’’)
-: ‘<div class="empty">No items found.</div>’;
-updateMeta();
-}
+  function renderAll() { renderPrep(); renderOrder(); }
 
-function renderOrder() {
-var q = document.getElementById(‘searchOrder’).value.toLowerCase();
-var items = ORDER_ITEMS.filter(i => i.name.toLowerCase().includes(q));
-var el = document.getElementById(‘listOrder’);
-el.innerHTML = items.length
-? items.map(i => itemHTML(i, orderState, ‘o’, ‘changeOrderQty’, ‘order’)).join(’’)
-: ‘<div class="empty">No items found.</div>’;
-updateMeta();
-}
+  function toggleDrawer(tab, id) {
+    var state = tab === 'prep' ? prepState : orderState;
+    var prefix = tab === 'prep' ? 'p' : 'o';
+    state[id].open = !state[id].open;
+    var drawer = document.getElementById(prefix + 'drawer' + id);
+    if (drawer) drawer.classList.toggle('open', state[id].open);
+  }
 
-function renderAll() { renderPrep(); renderOrder(); }
+  function saveNote(tab, id, val) {
+    var state = tab === 'prep' ? prepState : orderState;
+    state[id].note = val.trim();
+    // update preview without full re-render
+    var prefix = tab === 'prep' ? 'p' : 'o';
+    var row = document.getElementById(prefix + 'row' + id);
+    if (row) {
+      var preview = row.querySelector('.item-note-preview');
+      if (val.trim()) {
+        if (!preview) {
+          var nameEl = row.querySelector('.item-name');
+          var p = document.createElement('div');
+          p.className = 'item-note-preview';
+          nameEl.parentNode.appendChild(p);
+          preview = p;
+        }
+        preview.textContent = '(' + val.trim() + ')';
+      } else if (preview) {
+        preview.remove();
+      }
+    }
+  }
 
-function toggleDrawer(tab, id) {
-var state = tab === ‘prep’ ? prepState : orderState;
-var prefix = tab === ‘prep’ ? ‘p’ : ‘o’;
-state[id].open = !state[id].open;
-var drawer = document.getElementById(prefix + ‘drawer’ + id);
-if (drawer) drawer.classList.toggle(‘open’, state[id].open);
-}
+  function changePrepQty(id, delta) {
+    prepState[id].qty = Math.max(0, prepState[id].qty + delta);
+    var el = document.getElementById('pqty' + id);
+    if (el) el.textContent = prepState[id].qty;
+    updateMeta();
+  }
 
-function saveNote(tab, id, val) {
-var state = tab === ‘prep’ ? prepState : orderState;
-state[id].note = val.trim();
-// update preview without full re-render
-var prefix = tab === ‘prep’ ? ‘p’ : ‘o’;
-var row = document.getElementById(prefix + ‘row’ + id);
-if (row) {
-var preview = row.querySelector(’.item-note-preview’);
-if (val.trim()) {
-if (!preview) {
-var nameEl = row.querySelector(’.item-name’);
-var p = document.createElement(‘div’);
-p.className = ‘item-note-preview’;
-nameEl.parentNode.appendChild(p);
-preview = p;
-}
-preview.textContent = ‘(’ + val.trim() + ‘)’;
-} else if (preview) {
-preview.remove();
-}
-}
-}
+  function changeOrderQty(id, delta) {
+    orderState[id].qty = Math.max(0, orderState[id].qty + delta);
+    var el = document.getElementById('oqty' + id);
+    if (el) el.textContent = orderState[id].qty;
+    updateMeta();
+  }
 
-function changePrepQty(id, delta) {
-prepState[id].qty = Math.max(0, prepState[id].qty + delta);
-var el = document.getElementById(‘pqty’ + id);
-if (el) el.textContent = prepState[id].qty;
-updateMeta();
-}
+  function updateMeta() {
+    var pSel = PREP_ITEMS.filter(i => prepState[i.id].qty > 0).length;
+    var oSel = ORDER_ITEMS.filter(i => orderState[i.id].qty > 0).length;
+    document.getElementById('countPrep').textContent = pSel + ' items set';
+    document.getElementById('countOrder').textContent = oSel + ' items set';
+    document.getElementById('totalSelected').textContent = pSel + oSel;
+    document.getElementById('genBtn').disabled = (pSel + oSel) === 0;
+  }
 
-function changeOrderQty(id, delta) {
-orderState[id].qty = Math.max(0, orderState[id].qty + delta);
-var el = document.getElementById(‘oqty’ + id);
-if (el) el.textContent = orderState[id].qty;
-updateMeta();
-}
+  function openModal(tab) {
+    modalTab = tab;
+    document.getElementById('modalTitle').textContent = tab === 'prep' ? 'Add Prep Item' : 'Add Order Item';
+    document.getElementById('newItemName').value = '';
+    document.getElementById('addModal').classList.add('open');
+    setTimeout(function() { document.getElementById('newItemName').focus(); }, 100);
+  }
 
-function updateMeta() {
-var pSel = PREP_ITEMS.filter(i => prepState[i.id].qty > 0).length;
-var oSel = ORDER_ITEMS.filter(i => orderState[i.id].qty > 0).length;
-document.getElementById(‘countPrep’).textContent = pSel + ’ items set’;
-document.getElementById(‘countOrder’).textContent = oSel + ’ items set’;
-document.getElementById(‘totalSelected’).textContent = pSel + oSel;
-document.getElementById(‘genBtn’).disabled = (pSel + oSel) === 0;
-}
+  function closeModal() {
+    document.getElementById('addModal').classList.remove('open');
+  }
 
-function openModal(tab) {
-modalTab = tab;
-document.getElementById(‘modalTitle’).textContent = tab === ‘prep’ ? ‘Add Prep Item’ : ‘Add Order Item’;
-document.getElementById(‘newItemName’).value = ‘’;
-document.getElementById(‘addModal’).classList.add(‘open’);
-setTimeout(function() { document.getElementById(‘newItemName’).focus(); }, 100);
-}
+  function confirmAdd() {
+    var name = document.getElementById('newItemName').value.trim();
+    if (!name) return;
+    var id = nextId++;
+    var item = { id: id, name: name, hasOrder: false };
+    if (modalTab === 'prep') {
+      PREP_ITEMS.push(item);
+      prepState[id] = { qty:0, note:'', open:false };
+      renderPrep();
+    } else {
+      ORDER_ITEMS.push(item);
+      orderState[id] = { qty:0, note:'', open:false };
+      renderOrder();
+    }
+    closeModal();
+  }
 
-function closeModal() {
-document.getElementById(‘addModal’).classList.remove(‘open’);
-}
+  document.getElementById('newItemName').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') confirmAdd();
+    if (e.key === 'Escape') closeModal();
+  });
 
-function confirmAdd() {
-var name = document.getElementById(‘newItemName’).value.trim();
-if (!name) return;
-var id = nextId++;
-var item = { id: id, name: name, hasOrder: false };
-if (modalTab === ‘prep’) {
-PREP_ITEMS.push(item);
-prepState[id] = { qty:0, note:’’, open:false };
-renderPrep();
-} else {
-ORDER_ITEMS.push(item);
-orderState[id] = { qty:0, note:’’, open:false };
-renderOrder();
-}
-closeModal();
-}
+  document.getElementById('addModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
 
-document.getElementById(‘newItemName’).addEventListener(‘keydown’, function(e) {
-if (e.key === ‘Enter’) confirmAdd();
-if (e.key === ‘Escape’) closeModal();
-});
+  function generate() {
+    var prepSel  = PREP_ITEMS.filter(i => prepState[i.id].qty > 0);
+    var orderSel = ORDER_ITEMS.filter(i => orderState[i.id].qty > 0);
 
-document.getElementById(‘addModal’).addEventListener(‘click’, function(e) {
-if (e.target === this) closeModal();
-});
+    document.getElementById('resultSub').textContent = tomorrow();
 
-function generate() {
-var prepSel  = PREP_ITEMS.filter(i => prepState[i.id].qty > 0);
-var orderSel = ORDER_ITEMS.filter(i => orderState[i.id].qty > 0);
+    function liHTML(name, qty, note) {
+      var qtyStr = qty > 1 ? ' <span class="s-qty">×' + qty + '</span>' : '';
+      var noteStr = note ? ' <span class="s-note">(' + note + ')</span>' : '';
+      return '<li>' + name + noteStr + qtyStr + '</li>';
+    }
 
-```
-document.getElementById('resultSub').textContent = tomorrow();
+    document.getElementById('rPrepItems').innerHTML = prepSel.length
+      ? prepSel.map(i => liHTML(i.name, prepState[i.id].qty, prepState[i.id].note)).join('')
+      : '<li style="color:#aaa;font-size:14px">None added.</li>';
 
-function liHTML(name, qty, note) {
-  var qtyStr = qty > 1 ? ' <span class="s-qty">×' + qty + '</span>' : '';
-  var noteStr = note ? ' <span class="s-note">(' + note + ')</span>' : '';
-  return '<li>' + name + noteStr + qtyStr + '</li>';
-}
+    document.getElementById('rOrderItems').innerHTML = orderSel.length
+      ? orderSel.map(i => liHTML(i.name, orderState[i.id].qty, orderState[i.id].note)).join('')
+      : '<li style="color:#aaa;font-size:14px">None added.</li>';
 
-document.getElementById('rPrepItems').innerHTML = prepSel.length
-  ? prepSel.map(i => liHTML(i.name, prepState[i.id].qty, prepState[i.id].note)).join('')
-  : '<li style="color:#aaa;font-size:14px">None added.</li>';
+    document.getElementById('rPrepSection').style.display = 'block';
+    document.getElementById('rOrderSection').style.display = orderSel.length ? 'block' : 'none';
 
-document.getElementById('rOrderItems').innerHTML = orderSel.length
-  ? orderSel.map(i => liHTML(i.name, orderState[i.id].qty, orderState[i.id].note)).join('')
-  : '<li style="color:#aaa;font-size:14px">None added.</li>';
+    document.getElementById('mainApp').style.display = 'none';
+    document.getElementById('resultScreen').classList.add('active');
+    window.scrollTo(0, 0);
+  }
 
-document.getElementById('rPrepSection').style.display = 'block';
-document.getElementById('rOrderSection').style.display = orderSel.length ? 'block' : 'none';
+  function goBack() {
+    document.getElementById('mainApp').style.display = 'block';
+    document.getElementById('resultScreen').classList.remove('active');
+    window.scrollTo(0, 0);
+  }
 
-document.getElementById('mainApp').style.display = 'none';
-document.getElementById('resultScreen').classList.add('active');
-window.scrollTo(0, 0);
-```
+  async function saveToPhotos() {
+    var btn = document.getElementById('saveBtn');
+    var orig = btn.textContent;
+    btn.textContent = 'Saving...';
+    btn.disabled = true;
+    var backBtn = document.querySelector('.back-btn');
+    var actions = document.querySelector('.scrapbook-actions');
+    backBtn.style.display = 'none';
+    actions.style.display = 'none';
+    try {
+      var target = document.getElementById('scrapbookContent');
+      var canvas = await html2canvas(target, {
+        backgroundColor: '#111', scale: 2, useCORS: true, scrollY: -window.scrollY,
+        windowWidth: target.scrollWidth, windowHeight: target.scrollHeight,
+      });
+      canvas.toBlob(async function(blob) {
+        var file = new File([blob], 'nicks-thai-prep-' + Date.now() + '.png', { type: 'image/png' });
+        // Use native share sheet on iOS (triggers Save to Photos option)
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file], title: "Nick's Thai Prep List" });
+          } catch(e) {
+            if (e.name !== 'AbortError') fallbackDownload(canvas);
+          }
+        } else {
+          fallbackDownload(canvas);
+        }
+        backBtn.style.display = '';
+        actions.style.display = '';
+        btn.textContent = orig;
+        btn.disabled = false;
+      }, 'image/png');
+    } catch(e) {
+      alert('Could not save image. Try taking a screenshot instead.');
+      backBtn.style.display = '';
+      actions.style.display = '';
+      btn.textContent = orig;
+      btn.disabled = false;
+    }
+  }
 
-}
+  function fallbackDownload(canvas) {
+    var link = document.createElement('a');
+    link.download = 'nicks-thai-prep-' + Date.now() + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
 
-function goBack() {
-document.getElementById(‘mainApp’).style.display = ‘block’;
-document.getElementById(‘resultScreen’).classList.remove(‘active’);
-window.scrollTo(0, 0);
-}
-
-async function saveToPhotos() {
-var btn = document.getElementById(‘saveBtn’);
-var orig = btn.textContent;
-btn.textContent = ‘Saving…’;
-btn.disabled = true;
-var backBtn = document.querySelector(’.back-btn’);
-var actions = document.querySelector(’.scrapbook-actions’);
-backBtn.style.display = ‘none’;
-actions.style.display = ‘none’;
-try {
-var target = document.getElementById(‘scrapbookContent’);
-var canvas = await html2canvas(target, {
-backgroundColor: ‘#111’, scale: 2, useCORS: true, scrollY: -window.scrollY,
-windowWidth: target.scrollWidth, windowHeight: target.scrollHeight,
-});
-canvas.toBlob(async function(blob) {
-var file = new File([blob], ‘nicks-thai-prep-’ + Date.now() + ‘.png’, { type: ‘image/png’ });
-// Use native share sheet on iOS (triggers Save to Photos option)
-if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-try {
-await navigator.share({ files: [file], title: “Nick’s Thai Prep List” });
-} catch(e) {
-if (e.name !== ‘AbortError’) fallbackDownload(canvas);
-}
-} else {
-fallbackDownload(canvas);
-}
-backBtn.style.display = ‘’;
-actions.style.display = ‘’;
-btn.textContent = orig;
-btn.disabled = false;
-}, ‘image/png’);
-} catch(e) {
-alert(‘Could not save image. Try taking a screenshot instead.’);
-backBtn.style.display = ‘’;
-actions.style.display = ‘’;
-btn.textContent = orig;
-btn.disabled = false;
-}
-}
-
-function fallbackDownload(canvas) {
-var link = document.createElement(‘a’);
-link.download = ‘nicks-thai-prep-’ + Date.now() + ‘.png’;
-link.href = canvas.toDataURL(‘image/png’);
-link.click();
-}
-
-renderAll();
+  renderAll();
 </script>
-
 </body>
 </html>
